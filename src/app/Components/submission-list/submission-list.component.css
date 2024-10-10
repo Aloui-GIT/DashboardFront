@@ -1,0 +1,50 @@
+/* Container Styles */
+.container {
+  max-width: 1200px; /* Set a max-width for larger screens */
+  margin: 0 auto; /* Center the container */
+  padding: 15px; /* Add padding */
+}
+
+/* Form Content */
+.form-content {
+  background-color: #ffffff; /* White background for form content */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Question Card Styles */
+.question-card {
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+.question-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Header Styles */
+.question-header {
+  border-bottom: 2px solid #007bff; /* Border under the header */
+  padding-bottom: 10px; /* Padding below header */
+}
+
+/* Answer Section */
+.answer-section {
+  margin-top: 15px; /* Spacing above answer section */
+}
+.answer-list {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+}
+.answer-item {
+  background-color: #f8f9fa; /* Light gray background for answers */
+  padding: 8px; /* Padding for each answer */
+  border-radius: 5px; /* Rounded corners for answers */
+  margin-bottom: 5px; /* Spacing between answers */
+}
+
+/* Chart Container */
+.chart-container {
+  margin-top: 20px; /* Space above the chart */
+  text-align: center; /* Center align charts */
+}

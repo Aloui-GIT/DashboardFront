@@ -1,0 +1,191 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.form-page-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.form-info-container {
+  flex: 1;
+  background-color: #343a40; /* Dark background */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-shadow: inset -2px 0px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.info-text {
+  text-align: center;
+}
+
+.info-text h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.info-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.form-detail-container {
+  flex: 1;
+  padding: 60px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  position: relative;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.back-button {
+  background-color: #6c757d; /* Grey background */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #5a6268; /* Darker grey on hover */
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #343a40; /* Dark text */
+}
+
+.step-container {
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.input-error {
+  border-color: #dc3545; /* Red border */
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 12px;
+}
+
+.required-asterisk {
+  color: #dc3545;
+  margin-left: 5px;
+}
+
+.options-container {
+  margin-top: 10px;
+}
+
+.form-check {
+  margin-bottom: 10px;
+}
+
+.form-check-label {
+  margin-left: 8px;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  padding: 10px 15px;
+  background-color: #007bff; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-controls button:disabled {
+  background-color: #6c757d; /* Grey background for disabled button */
+}
+
+.submit-button {
+  padding: 12px 20px;
+  background-color: #28a745; /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: #218838; /* Darker green */
+}
+.error-message {
+  color: #dc3545;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.progress {
+  background-color: #e9ecef; /* Light grey background */
+  border-radius: 5px; /* Rounded corners */
+  height: 20px; /* Height of the progress bar */
+  margin-bottom: 20px; /* Spacing below the progress bar */
+}
+
+.progress-bar {
+  background-color: #007bff; /* Blue color for the filled part */
+  height: 100%; /* Fill the height of the progress container */
+  color: white; /* Text color */
+  text-align: center; /* Center the text inside the progress bar */
+  transition: width 0.4s ease; /* Smooth transition for the width change */
+  border-radius: 5px; /* Rounded corners */
+}
+

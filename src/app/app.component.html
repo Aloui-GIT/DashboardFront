@@ -1,0 +1,18 @@
+<app-navbar *ngIf="!isErrorPage && !isLoginPage && !isRegisterPage && !isPasswordResetPage"></app-navbar>
+
+<div id="layoutSidenav">
+  <div id="layoutSidenav_nav" *ngIf="!isLoginPage && !isRegisterPage && !isPasswordResetPage && !isErrorPage">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid px-4">
+        
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+
+    <app-footer *ngIf="!isErrorPage && !isLoginPage && !isRegisterPage && !isPasswordResetPage"></app-footer>
+  </div>
+</div>

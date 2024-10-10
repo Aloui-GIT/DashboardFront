@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Form with Actions Sidebar</title>
+</head>
+<body>
+<div class="container">
+  <aside class="sidebar">
+    <h2>Actions</h2>
+    <div class="separator"></div>
+
+    <ul class="actions-list">
+      <li><button type="button" class="btn-action" (click)="addStep()"><i class="fas fa-plus"></i> Add Step</button></li>
+
+      <select (change)="onStepSelect($event)" class="step-select" [value]="selectedStepIndex !== null ? selectedStepIndex : ''">
+        <option value="" disabled>Select a Step</option>
+        <option *ngFor="let step of stepsFormArray.controls; let i = index" [value]="i" [selected]="i === selectedStepIndex">
+          Step {{ i + 1 }}
+        </option>
+      </select>
+      <li><button type="button" class="btn-action" (click)="addQuestionToSelectedStep()"><i class="fas fa-plus"></i> Add Question</button></li>
+      <div class="separator"></div>
+      <!--
+      <li>
+        <button type="button" class="btn-action" (click)="previewForm()">
+          <i class="fas fa-eye"></i> Preview Form
+        </button>
+      </li>
+      <div class="separator"></div>
+       -->
+      <!-- Input for Max Submissions -->
+      <div class="max-submissions-group">
+        <div class="form-group">
+          <label for="maxSubmissionsInput{{ form.idForm }}">Max Submissions:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="maxSubmissionsInput{{ form.idForm }}"
+            [(ngModel)]="maxSubmissions[form.idForm]"
+            (ngModelChange)="setMaxSubmissions(form.idForm, maxSubmissions[form.idForm])"
+            [value]="maxSubmissions[form.idForm] || form.maxSubmissionsPerUser"
+            min="0"
+          />
+        </div>
+        <!-- Display the current max submissions -->
+        <p>Current Max Submissions: {{ form.maxSubmissionsPerUser }}</p>
+      </div>
+
+      <div class="separator"></div>
+
+    </ul>
+
+    <div class="sidebar-footer">
+      <button type="button" class="btn-back" (click)="goBack()">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+    </div>
+    <div class="separator"></div>
+    <div class="sidebar-footer">
+      <button type="button" class="btn-cancel" (click)="Cancel()">
+        <i class="fas fa-times"></i> Cancel
+      </button>
+    </div>
+  </aside>
+
+
+  <main>
+    <form [formGroup]="formForm" (ngSubmit)="onSubmitForm()" class="styled-form" id="formElement">
+      <!-- Form Title and Description Section -->
+      <section class="form-section">
+        <h2 class="section-heading">Form Details</h2>
+        <div class="form-group">
+          <label for="form-title">Title <span class="required">*</span></label>
+          <input id="form-title" type="text" formControlName="title" class="form-control" required />
+          <div *ngIf="formForm.get('title')?.invalid && formForm.get('title')?.touched" class="error-message">
+            Title is required.
+          </div>
+        </div>
+        <div class="form-group description-group">
+          <label for="form-description">Description</label>
+          <button type="button" class="btn-toggle-description" (click)="toggleFormDescription()" data-bs-toggle="tooltip" data-bs-placement="top" title="Toggle Description">
+            <i class="fas fa-eye"></i>
+          </button>
+          <div *ngIf="showFormDescription">
+            <textarea id="form-description" formControlName="description" class="form-control" placeholder="Provide a brief description..."></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- Steps Section -->
+      <section class="steps-section" formArrayName="steps">
+        <div *ngFor="let stepControl of stepsFormArray.controls; let i = index" [formGroupName]="i" class="step-container">
+          <header class="step-header">
+            <h3>Step {{ i + 1 }}</h3>
+            <button type="button" class="btn-remove-step" (click)="removeStep(i)">
+              <i class="fas fa-trash-alt"></i> Remove Step
+            </button>
+          </header>
+          <div class="form-group">
+            <label for="step-title-{{ i }}">Step Title <span class="required">*</span></label>
+            <input id="step-title-{{ i }}" type="text" formControlName="title" class="form-control" required />
+            <div *ngIf="stepsFormArray.at(i).get('title')?.invalid && stepsFormArray.at(i).get('title')?.touched" class="error-message">
+              Step title is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="step-description-{{ i }}">Step Description</label>
+            <button type="button" class="btn-toggle-description" (click)="toggleStepDescription(i)">
+              <i class="fas fa-eye"></i>
+            </button>
+            <div *ngIf="showStepDescriptions[i]">
+              <textarea id="step-description-{{ i }}" formControlName="stepDescription" class="form-control" placeholder="Provide step description..."></textarea>
+            </div>
+          </div>
+
+          <!-- Questions Section -->
+          <section formArrayName="questions" class="questions-section">
+            <div *ngFor="let questionControl of getQuestionsArray(i).controls; let j = index" [formGroupName]="j" class="question-container">
+              <div class="form-group">
+                <label for="question-{{ i }}-{{ j }}">Question {{ j + 1 }} <span class="required">*</span></label>
+                <input id="question-{{ i }}-{{ j }}" formControlName="question" class="form-control" required />
+
+                <div *ngIf="getQuestionsArray(i).at(j).get('question')?.invalid && getQuestionsArray(i).at(j).get('question')?.touched" class="error-message">
+                  Question is required.
+                </div>
+              </div>
+
+              <!-- Repositioned delete button -->
+              <button type="button" class="btn-remove-question" (click)="deleteQuestion(i, j)">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+
+              <div class="form-group">
+                <label for="inputType-{{ i }}-{{ j }}">Input Type</label>
+                <select id="inputType-{{ i }}-{{ j }}" formControlName="inputType" class="form-control" (change)="onInputTypeChange(i, j, $event)">
+                  <option value="">Select an input type</option>
+                  <option *ngFor="let type of inputTypes" [value]="type.idInput">{{ type.inputType }}</option>
+                </select>
+              </div>
+
+              <div class="form-check">
+                <input type="checkbox" formControlName="required" class="form-check-input" id="required-{{ i }}-{{ j }}" />
+                <label for="required-{{ i }}-{{ j }}" class="form-check-label">Required</label>
+              </div>
+
+              <div class="options-section" *ngIf="isOptionsVisible(i, j)">
+                <h5>Options</h5>
+                <div formArrayName="options" class="options-list">
+                  <div *ngFor="let optionControl of getOptionsArray(i, j)?.controls; let k = index" [formGroupName]="k" class="option-container">
+                    <div class="form-group">
+                      <label for="option-{{ i }}-{{ j }}-{{ k }}">Option {{ k + 1 }}</label>
+                      <input id="option-{{ i }}-{{ j }}-{{ k }}" type="text" formControlName="option" class="form-control" required (input)="updateOption(i, j, k)" placeholder="Enter option..." />
+                    </div>
+
+                    <button type="button" class="btn-remove-option" (click)="deleteOption(i, j, k)">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+
+                  <button type="button" class="btn-add-option" (click)="addBlankOptionToQuestion(i, j)">
+                    <i class="fas fa-plus"></i> Add Option
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </section>
+      <div class="button-container">
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-save"></i> Save Form
+        </button>
+
+      </div>
+    </form>
+  </main>
+</div>
+</body>
+</html>

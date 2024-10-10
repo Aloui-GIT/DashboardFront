@@ -1,0 +1,16 @@
+<!-- profile-picture.component.html -->
+<div class="upload-container">
+  <input type="file" (change)="onFileSelected($event)" />
+  <button (click)="onUpload()">Upload</button>
+
+  <div *ngIf="uploadProgress > 0">
+    <p>Upload Progress: {{ uploadProgress }}%</p>
+  </div>
+
+  <p *ngIf="uploadMessage">{{ uploadMessage }}</p>
+</div>
+
+<!-- profile.component.html -->
+<div *ngIf="profilePictureUrl">
+  <img [src]="profilePictureUrl" alt="Profile Picture" />
+</div>

@@ -1,0 +1,31 @@
+<div class="container my-4">
+  <div class="search-container mb-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search forms..."
+      (input)="onSearchInput($event)"
+    />
+  </div>
+
+  <h2 class="text-center mt-4 mb-4">Submitted Forms</h2>
+
+  <div class="row">
+    <div *ngFor="let form of filteredForms" class="col-lg-4 col-md-4 col-sm-6 mb-4">
+      <div *ngIf="formSubmissionData[form.idForm] && formSubmissionData[form.idForm].count > 0" class="form-card">
+        <div class="form-card-title">
+          <h4>{{ form.title }}</h4>
+        </div>
+        <div class="form-card-content">
+          <p>
+            <strong>Last Submitted:</strong> {{ formSubmissionData[form.idForm].lastSubmitted | date:'short' }}<br />
+            <strong>Submission Count:</strong> {{ formSubmissionData[form.idForm].count }}
+          </p>
+        </div>
+        <div class="form-card-footer">
+          <button class="btn btn-outline-primary" (click)="goToStatistics(form.idForm)">See Stats</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

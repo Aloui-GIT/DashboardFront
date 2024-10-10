@@ -1,0 +1,18 @@
+.create-blank-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.plus-icon {
+  font-size: 60px; /* Increased font size for a bigger circle */
+  color: #007bff;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.plus-icon:hover {
+  transform: scale(1.2);
+  color: #0056b3;
+}

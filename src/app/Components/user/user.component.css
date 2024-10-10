@@ -1,0 +1,158 @@
+/* Container */
+.container {
+  padding-top: 20px;
+}
+
+/* Card Style */
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.card-header {
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-header h5 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Table Style */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table-responsive {
+  padding: 0;
+}
+
+thead {
+  background-color: #f8f9fa;
+}
+
+thead th {
+  font-weight: bold;
+  color: #666;
+}
+
+/* User Row */
+.avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.text-dark {
+  color: #333 !important;
+}
+
+.badge {
+  padding: 0.5em 1em;
+  font-size: 0.875rem;
+}
+
+.badge.bg-danger {
+  background-color: #dc3545;
+}
+
+.badge.bg-success {
+  background-color: #28a745;
+}
+
+.badge.bg-info {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 0.75em 1.25em;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+/* Icon Spacing */
+.me-2 {
+  margin-right: 0.5rem;
+}
+
+/* Button */
+.btn-light {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+}
+
+.btn-light:hover {
+  background-color: #e2e6ea;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+}
+
+/* Handle dropdown showing */
+.dropdown.show .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu-end {
+  right: 0;
+  left: auto;
+}
+/* Phone Number */
+.phone-number {
+  font-size: 1rem; /* Adjust the size as needed */
+  color: #007bff; /* Bootstrap's primary color for links */
+  text-decoration: none; /* Remove underline */
+}
+
+.phone-number:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+.phone-number {
+  color: #333;
+}
+.avatar {
+  border: 2px solid #007bff; /* Add border to avatar */
+}
+
+.table td, .table th {
+  vertical-align: middle; /* Center content vertically */
+}
+
+.dropdown-menu {
+  min-width: 200px; /* Ensure dropdown menu is not too small */
+}
+
+.email-section {
+  background-color: #f8f9fa; /* Light background for email section */
+  padding: 15px; /* Add padding */
+  border-radius: 5px; /* Rounded corners */
+}
+.btn-group .btn {
+  margin-right: 5px; /* Add space between buttons */
+}
+
+.btn-group .btn:last-child {
+  margin-right: 0; /* Remove margin from the last button */
+}

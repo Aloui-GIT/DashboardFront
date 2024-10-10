@@ -1,0 +1,21 @@
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" *ngIf="!isLoginPage() && !isRegisterPage()">
+  <!-- Navbar Brand -->
+  <a class="navbar-brand ps-3" href="Home">ADMIN DASHBOARD</a>
+
+  <!-- Sidebar Toggle -->
+  <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Spacer to push the logout button to the right -->
+  <div class="ms-auto"></div>
+
+  <!-- Navbar Items -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <button class="btn nav-link" (click)="logout()" style="border: none; background: none; color: white;">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </li>
+  </ul>
+</nav>

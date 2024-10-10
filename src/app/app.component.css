@@ -1,0 +1,49 @@
+.create-blank-form {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+}
+
+.create-blank-form p {
+  margin-bottom: 20px;
+}
+
+.create-blank-form .btn {
+  font-size: 1em;
+  padding: 10px 20px;
+  background-color: #007bff; /* Primary button color, adjust as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-blank-form .btn:hover {
+  background-color: #0056b3; /* Darker shade on hover, adjust as needed */
+}
+/* Global or component-specific CSS */
+
+/* Center the snackbar container horizontally and vertically */
+.mat-snack-bar-container {
+  background-color: #323232; /* Dark background for snackbar */
+  color: #fff; /* White text color */
+  font-size: 16px; /* Font size for snackbar text */
+  border-radius: 4px; /* Rounded corners for snackbar */
+  padding: 12px 20px; /* Padding inside snackbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for better visibility */
+  position: fixed; /* Fixed position to override default placement */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset to truly center */
+}
+
+/* Adjust the action button style if needed */
+.mat-snack-bar-container .mat-simple-snackbar-action {
+  color: #ff4081; /* Color of the action button */
+}
+
+.mat-snack-bar-container .mat-simple-snackbar-action:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+

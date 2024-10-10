@@ -1,0 +1,19 @@
+.sb-topnav .navbar-nav .nav-link {
+  transition: background-color 0.3s ease;
+}
+
+.sb-topnav .navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu {
+  min-width: 10rem;
+}
+
+.dropdown-item {
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}

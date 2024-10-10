@@ -1,0 +1,4 @@
+footer {
+  position: relative; /* Or fixed, if it stays at the bottom */
+  z-index: 1; /* Lower value, so it’s below the dialog */
+}

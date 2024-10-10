@@ -1,0 +1,46 @@
+.gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #84fab0;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+}
+
+.gradient-custom-4 {
+  /* fallback for old browsers */
+  background: #84fab0;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+}
+.bg-image {
+  background-size: cover;
+  background-position: center;
+}
+
+.gradient-custom-3 {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.form-control-lg {
+  height: 50px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.forgot-password-link {
+  text-decoration: none;
+}
+
+.message-container {
+  margin-top: 20px;
+}
+
+.alert-danger {
+  border: 1px solid #dc3545;
+}

@@ -1,0 +1,21 @@
+/* user-settings.component.css */
+.position-relative {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 75%; /* Increase this value to move the icon lower */
+  right: 10px; /* Adjust as needed */
+  transform: translateY(-50%); /* Adjust or remove if needed */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1; /* Ensure the button is clickable */
+}
+
+.toggle-password .fa-eye,
+.toggle-password .fa-eye-slash {
+  font-size: 1.2rem; /* Adjust size if needed */
+  color: #6c757d; /* Adjust color if needed */
+}

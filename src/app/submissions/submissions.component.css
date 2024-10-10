@@ -1,0 +1,55 @@
+.container {
+  padding: 20px;
+}
+
+.row {
+  margin: 0;
+}
+
+.form-card {
+  background-color: #f9f9f9; /* Light background for the card */
+  border-radius: 8px; /* Soft rounded corners */
+  border: 1px solid #e0e0e0; /* Subtle border for definition */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  overflow: hidden; /* Prevent overflow of contents */
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Padding inside the card */
+}
+
+.form-card:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.form-card-title {
+  margin-bottom: 15px; /* Spacing below the title */
+  text-align: center; /* Center align title */
+}
+
+.form-card-content {
+  flex-grow: 1; /* Allow content to expand */
+  text-align: left; /* Left align content */
+}
+
+.form-card-footer {
+  text-align: center; /* Center align footer */
+}
+
+.btn-outline-primary {
+  border-color: #007bff; /* Border color for the button */
+  color: #007bff; /* Text color for button */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff; /* Background color on hover */
+  color: white; /* Text color on hover */
+}
+
+@media (max-width: 768px) {
+  .form-card {
+    margin: 0 auto; /* Center cards on smaller screens */
+  }
+}

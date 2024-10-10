@@ -1,0 +1,48 @@
+
+<!-- Display Analytics for Forms -->
+<div class="container mt-5">
+  <div *ngIf="selectedFormId" class="form-content">
+    <h2 class="text-center mb-4">Questions and Answers for Form {{ selectedFormId }}</h2>
+
+    <!-- Display Questions and Associated Answers for Selected Form -->
+    <div *ngFor="let question of questionsByFormId[selectedFormId]" class="question-card mb-4 p-4 border rounded bg-light shadow">
+      <!-- Question Header -->
+      <div class="question-header mb-3">
+        <h3 class="question-label">Question:</h3>
+        <h4 class="question-title">{{ question.question }}</h4>
+      </div>
+
+      <!-- Display Answers for Paragraph and Short Answer Input Types -->
+      <div *ngIf="question.input?.inputType !== 'Checkboxes' && question.input?.inputType !== 'Drop-down' && question.input?.inputType !== 'Multiple choice'" class="answer-section">
+        <h5 class="answer-heading">Answers:</h5>
+        <ul class="answer-list">
+          <li *ngFor="let answer of answersByQuestion[question.idQuestion]" class="answer-item">
+            {{ answer.answer }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Display Pie Chart for Checkbox and Multiple Choice Input Types -->
+      <div *ngIf="question.input?.inputType === 'Checkboxes' || question.input?.inputType === 'Multiple choice'" class="chart-container">
+        <ng-container *ngIf="pieChartData.length > 0">
+          <apx-chart
+            [series]="pieChartData"
+            [chart]="pieChartOptions"
+            [labels]="pieChartLabels"
+          ></apx-chart>
+        </ng-container>
+      </div>
+
+      <!-- Display Bar Chart for Drop-down Input Type -->
+      <div *ngIf="question.input?.inputType === 'Drop-down'" class="chart-container">
+        <ng-container *ngIf="barChartData.length > 0">
+          <apx-chart
+            [series]="barChartData"
+            [chart]="barChartOptions"
+            [xaxis]="{ categories: barChartLabels }"
+          ></apx-chart>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
