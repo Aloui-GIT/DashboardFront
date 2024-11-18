@@ -46,4 +46,7 @@ export class AnswerService {
   getAnswersByQuestionId(questionId: number): Observable<Answer[]> {
     return this.http.get<Answer[]>(`${this.apiUrl}/getAnswersByQuestionId/${questionId}`);
   }
+  deleteAnswer(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

@@ -1,29 +1,53 @@
-
-<!-- Display Analytics for Forms -->
-<div class="container mt-5">
+<!-- Analytics Section -->
+<div class="analytics-section mt-5">
   <div *ngIf="selectedFormId" class="form-content">
-    <h2 class="text-center mb-4">Questions and Answers for Form {{ selectedFormId }}</h2>
+    <!-- Form Header -->
+    <h2 class="text-center mb-4 text-primary">Analytics for Form {{ selectedFormId }}</h2>
 
-    <!-- Display Questions and Associated Answers for Selected Form -->
-    <div *ngFor="let question of questionsByFormId[selectedFormId]" class="question-card mb-4 p-4 border rounded bg-light shadow">
-      <!-- Question Header -->
-      <div class="question-header mb-3">
-        <h3 class="question-label">Question:</h3>
-        <h4 class="question-title">{{ question.question }}</h4>
+    <!-- Download Excel Button -->
+    <div class="text-center mb-5">
+      <h2 class="mb-4">Export User Submissions to Excel</h2>
+      <button (click)="downloadExcelFile()" class="btn btn-lg btn-primary shadow-sm px-4 py-2">
+        <i class="fas fa-download me-2"></i>Download Excel File
+      </button>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="comments-section mt-5">
+      <h3 class="text-secondary mb-4">Comments</h3>
+      <ul class="list-group">
+        <li *ngFor="let comment of comments" class="list-group-item d-flex justify-content-between align-items-center">
+          <span>{{ comment.commentText }}</span>
+          <button (click)="deleteComment(comment.idComment)" class="btn btn-danger btn-sm">
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Questions and Answers -->
+    <div *ngFor="let question of questionsByFormId[selectedFormId]" class="question-card mb-5 p-4 border rounded shadow-sm bg-white">
+      <div class="question-header d-flex justify-content-between align-items-center mb-3">
+        <h4 class="question-title text-secondary">Question:</h4>
+        <h5 class="fw-bold">{{ question.question }}</h5>
       </div>
 
-      <!-- Display Answers for Paragraph and Short Answer Input Types -->
-      <div *ngIf="question.input?.inputType !== 'Checkboxes' && question.input?.inputType !== 'Drop-down' && question.input?.inputType !== 'Multiple choice'" class="answer-section">
-        <h5 class="answer-heading">Answers:</h5>
-        <ul class="answer-list">
-          <li *ngFor="let answer of answersByQuestion[question.idQuestion]" class="answer-item">
+      <!-- Text/Paragraph Answer Section -->
+      <div *ngIf="question.input?.inputType !== 'Checkboxes' && question.input?.inputType !== 'Drop-down' && question.input?.inputType !== 'Multiple choice'" class="answer-section mb-4">
+        <h5 class="text-muted">Answers:</h5>
+        <ul class="list-group">
+          <li *ngFor="let answer of answersByQuestion[question.idQuestion]" class="list-group-item">
             {{ answer.answer }}
+            <button (click)="deleteAnswer(answer.idAnswer)" class="btn btn-danger btn-sm delete-btn">
+              <i class="fas fa-trash-alt"></i> Delete
+            </button>
+
           </li>
         </ul>
       </div>
 
-      <!-- Display Pie Chart for Checkbox and Multiple Choice Input Types -->
-      <div *ngIf="question.input?.inputType === 'Checkboxes' || question.input?.inputType === 'Multiple choice'" class="chart-container">
+      <!-- Pie Chart Section -->
+      <div *ngIf="question.input?.inputType === 'Checkboxes' || question.input?.inputType === 'Multiple choice'" class="chart-container mt-4">
         <ng-container *ngIf="pieChartData.length > 0">
           <apx-chart
             [series]="pieChartData"
@@ -33,8 +57,8 @@
         </ng-container>
       </div>
 
-      <!-- Display Bar Chart for Drop-down Input Type -->
-      <div *ngIf="question.input?.inputType === 'Drop-down'" class="chart-container">
+      <!-- Bar Chart Section -->
+      <div *ngIf="question.input?.inputType === 'Drop-down'" class="chart-container mt-4">
         <ng-container *ngIf="barChartData.length > 0">
           <apx-chart
             [series]="barChartData"

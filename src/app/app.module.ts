@@ -37,11 +37,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { PermissionsComponent } from './permissions/permissions.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgApexchartsModule } from "ng-apexcharts";
-import { PasswordResetComponent } from './Components/Authentication/password-reset/password-reset.component';
 import { LoadingComponent } from './loading/loading.component';
 import { SubmissionsComponent } from './submissions/submissions.component';
 import { PaginationComponent } from './Components/pagination/pagination.component';
 import { PreviewComponent } from './preview/preview.component';
+import { PasswordResetComponent } from './Components/Authentication/password-reset/password-reset.component';
 
 @NgModule({
   declarations: [

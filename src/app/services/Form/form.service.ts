@@ -65,4 +65,9 @@ export class FormService {
   updateMaxSubmissions(formId: number, maxSubmissions: number): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}/${formId}/max-submissions/${maxSubmissions}`, {});
   }
+
+
+  getLikesDislikes(formId: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${formId}/likes-dislikes`);
+  }
 }

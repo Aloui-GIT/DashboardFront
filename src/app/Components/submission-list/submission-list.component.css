@@ -1,50 +1,140 @@
-/* Container Styles */
-.container {
-  max-width: 1200px; /* Set a max-width for larger screens */
-  margin: 0 auto; /* Center the container */
-  padding: 15px; /* Add padding */
-}
-
-/* Form Content */
-.form-content {
-  background-color: #ffffff; /* White background for form content */
+/* General Styles */
+.analytics-section {
   padding: 20px;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #f9f9f9;
+  border-radius: 10px;
 }
 
-/* Question Card Styles */
+/* Form Header */
+.text-primary {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #007bff;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Comment Section */
+.comments-section {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section .list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.comments-section .list-group-item span {
+  font-size: 1rem;
+}
+
+.comments-section .list-group-item .btn-danger {
+  font-size: 0.8rem;
+  padding: 5px;
+}
+
+/* Question Cards */
 .question-card {
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
-}
-.question-card:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Header Styles */
 .question-header {
-  border-bottom: 2px solid #007bff; /* Border under the header */
-  padding-bottom: 10px; /* Padding below header */
+  margin-bottom: 15px;
 }
 
-/* Answer Section */
+.question-title {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.question-card h5 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 .answer-section {
-  margin-top: 15px; /* Spacing above answer section */
-}
-.answer-list {
-  list-style: none; /* Remove default list styles */
-  padding: 0; /* Remove default padding */
-}
-.answer-item {
-  background-color: #f8f9fa; /* Light gray background for answers */
-  padding: 8px; /* Padding for each answer */
-  border-radius: 5px; /* Rounded corners for answers */
-  margin-bottom: 5px; /* Spacing between answers */
+  background-color: #fafbfc;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Chart Container */
 .chart-container {
-  margin-top: 20px; /* Space above the chart */
-  text-align: center; /* Center align charts */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.chart-container apx-chart {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+/* Delete Button Styling */
+.delete-btn {
+  background-color: #dc3545; /* Red color for danger */
+  color: white; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 8px 12px; /* Padding around the button */
+  font-size: 14px; /* Adjust font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+.delete-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+  transform: translateY(-2px); /* Slightly move the button up on hover */
+}
+
+/* Focus effect */
+.delete-btn:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5); /* Add a subtle focus ring */
+}
+
+/* Button Icon */
+.delete-btn i {
+  margin-right: 8px; /* Space between icon and text */
 }

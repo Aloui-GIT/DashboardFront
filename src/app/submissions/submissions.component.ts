@@ -17,6 +17,7 @@ export class SubmissionsComponent implements OnInit {
   selectedFormId: number | null = null; // Variable to hold the selected form ID
   searchTerm: string = ''; // Variable to hold the search term
   filteredForms: Form[] = []; // Array to hold filtered forms
+  formLikesDislikesData: { [key: number]: { likes: number; dislikes: number } } = {}; // Store likes/dislikes data
 
   constructor(
     private submissionService: SubmissionService,
@@ -34,6 +35,8 @@ export class SubmissionsComponent implements OnInit {
       // Load submissions for the filtered forms
       this.forms.forEach(form => {
         this.loadSubmissionsForForm(form.idForm); // Load submissions for each form
+        this.loadLikesDislikesForForm(form.idForm); // Call for likes/dislikes data
+
       });
     });
 
@@ -118,4 +121,25 @@ export class SubmissionsComponent implements OnInit {
       this.filteredForms = this.forms; // Reset to all forms if search term is empty
     }
   }
+
+  loadLikesDislikesForForm(formId: number): void {
+    this.formService.getLikesDislikes(formId).subscribe(
+      (likesDislikes) => {
+        console.log('API Response for likes/dislikes:', likesDislikes);  // Add this line to log the response
+        if (likesDislikes) {
+          this.formLikesDislikesData[formId] = {
+            likes: likesDislikes.likes,
+            dislikes: likesDislikes.dislikes
+          };
+        } else {
+          this.formLikesDislikesData[formId] = { likes: 0, dislikes: 0 };
+        }
+      },
+      (error) => {
+        console.error(`Error fetching likes/dislikes for form ID ${formId}:`, error);
+        this.formLikesDislikesData[formId] = { likes: 0, dislikes: 0 };
+      }
+    );
+  }
+
 }
