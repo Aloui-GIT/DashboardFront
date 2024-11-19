@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build --prod
+RUN npm run build -- --configuration production
 
 # Étape 2 : Servir l'application avec NGINX
 FROM nginx:1.25
